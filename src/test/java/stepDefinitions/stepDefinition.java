@@ -122,28 +122,13 @@ public class stepDefinition extends Base {
         System.out.println("Error!");
     }
 }
-@AfterStep
-public void addScreenshot(Scenario scenario)
-{
-     final byte[] screenshot=((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-     scenario.attach(screenshot,"image/png",scenario.getName());
+//@AfterStep
+//public void addScreenshot(Scenario scenario)
+//{
+//     final byte[] screenshot=((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+//     scenario.attach(screenshot,"image/png",scenario.getName());
+//
+//}
 
-}
-
-
-    @Then("select hotel <Hotelname> from the list")
-    public void selectHotelHotelnameFromTheList(String hotel_name) {
-        try {
-            operationPage page = new operationPage();
-            page.select_hotel(hotel_name);
-            System.out.println("Hotel selected");
-        }catch (Exception e){
-            System.out.println("Hotel is not showing");
-        }
-    }
-
-    @Then("select hotel {string} from the list")
-    public void selectHotelHotelnameFromTheList() {
-    }
 
 }

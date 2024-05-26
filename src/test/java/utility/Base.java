@@ -40,7 +40,7 @@ public class Base extends Screenshots{
     }
     public void launchURL()
     {
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\Snehashis\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\Snehashis\\IdeaProjects\\edurekaProject\\src\\test\\resources\\chromedriver\\chromedriver.exe");
         driver =new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();

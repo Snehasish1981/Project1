@@ -2,6 +2,7 @@ package operationPage;
 
 import java.time.Duration;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 //import ExtentReport.Reporting;
 import ExtentReport.ExtentReporter;
@@ -9,12 +10,18 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
+import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import utility.Base;
 import utility.Screenshots;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import utility.readConfigproperties;
 
 public class operationPage extends Base {
 
@@ -25,15 +32,12 @@ public class operationPage extends Base {
 @Test
     public void launch_Goibibo_page() throws InterruptedException, NoSuchMethodException {
     launchURL();
-
-    String name = new Object(){}.getClass().getEnclosingMethod().getName();
-    System.out.println("Method name:"+name);
-
+        String name = new Object(){}.getClass().getEnclosingMethod().getName();
+        System.out.println("Method name:"+name);
         WebElement titlepopup=driver.findElement(By.xpath("//h3[text()='Login/Signup']"));
         WebElement closepopup=driver.findElement(By.xpath("//span[contains(@class,'sc-gsFSXq')]"));
         System.out.println("Title: "+titlepopup.getText());
         closepopup.click();
-
         String sc= Screenshots.captureScreenshot();
         Thread.sleep(2000);
         test=report.createTest("launch_Goibibo_page");
@@ -55,6 +59,7 @@ public class operationPage extends Base {
                 itemlistmenu.click();
                 break;
             }
+
 //        report= ExtentReporter.ExtentReportGenerator();
         test1=report.createTest("Hotel Menu");
         String sc= Screenshots.captureScreenshot();
@@ -145,6 +150,13 @@ public class operationPage extends Base {
             driver.findElement(By.xpath("//button[text()='Done']")).click();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2000));
     }
+//    @Test
+//    public void excelread()
+//    {
+//        readConfigproperties p1=new readConfigproperties();
+//        p1.read_excelfile();
+//
+//    }
 
     @Test
     public void search()

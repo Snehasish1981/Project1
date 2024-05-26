@@ -13,6 +13,7 @@ import java.util.Calendar;
 import static utility.Base.driver;
 
 public class Screenshots {
+//    public static Webdriver driver;
     public static String captureScreenshot() {
         Long l= Calendar.getInstance().getTimeInMillis();
         String screenshotId=l.toString();

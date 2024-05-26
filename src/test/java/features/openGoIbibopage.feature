@@ -6,6 +6,7 @@ Feature: Open Goibibo website landing page
     When User clicks on hotel menu
     And enters location <Location> & check in <Fromdate> & check out <Todate> details
     And selects one adult <Guests> under Rooms <Rooms> option
+
     And clicks on Search button
     When Hotel list appears
     Then list down the hotel names
@@ -13,4 +14,4 @@ Feature: Open Goibibo website landing page
     Then close browser
     Examples:
     |Location|Fromdate|Todate|Guests|Rooms|Hotelname|
-    |Kolkata |18-March-2024|29-March-2024|"1"|"1"|NPG|
+    |Kolkata |29-May-2024|31-May-2024|"1"|"1"|NPG|
