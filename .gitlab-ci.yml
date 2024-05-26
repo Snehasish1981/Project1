@@ -1,0 +1,25 @@
+stages:
+  -build
+  -test
+
+build the car:
+  stage: build
+    script:
+      - mkdir build
+      - cd build
+      - touch car.txt
+      - echo "a" >> car.txt
+      - echo "b" >> car.txt
+   artifacts:
+     paths:
+       build/
+
+test the car:
+  stage: test
+    script:
+      - ls
+      - test -f build/car.txt
+      - cd build
+      - cat car.txt
+      - grep "a" car.txt
+      - grep "b" car.txt
