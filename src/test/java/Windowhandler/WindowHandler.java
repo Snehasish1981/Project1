@@ -2,6 +2,7 @@ package Windowhandler;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
 import utility.readConfigproperties;
 
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,8 +11,11 @@ import java.util.Set;
 
 public class WindowHandler {
     public static ChromeDriver driver;
+    @FindBy(xpath="//Select[@id='selectnav2']")
+    static WebElement menu_nextwindow;
     public static void main(String[] args)
     {
+
         System.setProperty("webdriver.chrome.driver","C:\\Users\\Snehashis\\IdeaProjects\\edurekaProject\\src\\test\\resources\\chromedriver\\chromedriver.exe");
         driver =new ChromeDriver();
         driver.manage().window().maximize();
@@ -22,6 +26,7 @@ public class WindowHandler {
         JavascriptExecutor js=(JavascriptExecutor)driver;
         js.executeScript("window.scrollBy(0,200)");
         driver.findElement(By.xpath("//button[@id='newWindowBtn']")).click();
+
         Set<String> allwindows=driver.getWindowHandles();
         for(String child:allwindows)
         {
@@ -30,8 +35,9 @@ public class WindowHandler {
             {
                 driver.switchTo().window(child);
                 System.out.println(child);
-                driver.findElement(By.xpath("//Select[@id='selectnav2']")).click();
-
+//                driver.findElement(By.xpath("//Select[@id='selectnav2']")).click();
+//                driver.switchTo().alert().dismiss();
+                menu_nextwindow.click();
             }
         }
 

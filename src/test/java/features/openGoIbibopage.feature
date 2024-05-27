@@ -1,8 +1,7 @@
 
 Feature: Open Goibibo website landing page
 Background:
-	Given i am alive
-	Then Open browser
+
   Scenario Outline: Open Goibibo website landing page
 
     Given User launch Goibibo website page

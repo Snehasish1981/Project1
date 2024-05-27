@@ -129,6 +129,29 @@ public class stepDefinition extends Base {
 //     scenario.attach(screenshot,"image/png",scenario.getName());
 //
 //}
+@Given("User launch Facebook website page")
+public void user_launch_facebook_website_page() {
+    try{
+        operationPage page=new operationPage();
+        page.launch_fb();
+        System.out.println("Login in FB successful");
+    }catch(Exception e){
+        System.out.println("Page not found");
+    }
+}
+    @When("User enters UID and PWD and hits submit button")
+    public void user_enters_uid_and_pwd_and_hits_submit_button() {
+        try{
+            operationPage page=new operationPage();
+            page.login_fb();
+            System.out.println("Login in FB successful");
+        }catch(Exception e){
+            System.out.println("Page not found");
+        }
+    }
+    @Then("Facebook landing page should be displayed")
+    public void facebook_landing_page_should_be_displayed() {
 
+    }
 
 }

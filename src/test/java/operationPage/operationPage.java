@@ -1,5 +1,7 @@
 package operationPage;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.time.Duration;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -10,9 +12,17 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
+import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -28,10 +38,17 @@ public class operationPage extends Base {
     ExtentReports report= ExtentReporter.Setup();;
     ExtentTest test;
     ExtentTest test1;
+    @FindBy(xpath="//input[@id='email']")
+    WebElement username;
+    @FindBy(xpath="//input[@id='pass']")
+    WebElement passwprd;
+    @FindBy(xpath="//a[@id='u_0_0_A7']")
+    WebElement submit;
 
 @Test
     public void launch_Goibibo_page() throws InterruptedException, NoSuchMethodException {
     launchURL();
+
         String name = new Object(){}.getClass().getEnclosingMethod().getName();
         System.out.println("Method name:"+name);
         WebElement titlepopup=driver.findElement(By.xpath("//h3[text()='Login/Signup']"));
@@ -209,6 +226,22 @@ public class operationPage extends Base {
     public void endReport()
     {
         report.flush();
+    }
+public void launch_fb()
+{
+    System.setProperty("webdriver.chrome.driver","C:\\Users\\Snehashis\\IdeaProjects\\edurekaProject\\src\\test\\resources\\chromedriver\\chromedriver.exe");
+    driver =new ChromeDriver();
+    driver.manage().window().maximize();
+    driver.manage().deleteAllCookies();
+    driver.get("https:www.facebook.com");
+
+
+}
+    public void login_fb() throws FileNotFoundException {
+        List<String> credentials=read_excelfile();
+        String userid=credentials.get(0);
+        String password=credentials.get(1);
+
     }
 
 }
