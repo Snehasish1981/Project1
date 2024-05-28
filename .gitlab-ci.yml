@@ -1,8 +1,0 @@
-name: Run SHell commands
-on: [push]
-
-jobs:
-  runs-on: windows
-  steps:
-   -name: Echo a string
-   run: echo "Scripts are executig"
