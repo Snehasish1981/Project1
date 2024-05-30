@@ -251,6 +251,7 @@ public void launch_fb()
 //        login_id.sendKeys(userid);
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys(userid);
 //        pass_word.sendKeys(password);
+        
         driver.findElement(By.xpath("//input[@id='pass']")).sendKeys(password);
 //        login_button.click();
         driver.findElement(By.xpath("//button[@name='login']")).click();
