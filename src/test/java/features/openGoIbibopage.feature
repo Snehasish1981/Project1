@@ -1,7 +1,7 @@
 
 Feature: Open Goibibo website landing page
 Background:
-
+@GoIbibo
   Scenario Outline: Open Goibibo website landing page
 
     Given User launch Goibibo website page
@@ -16,4 +16,4 @@ Background:
     Then close browser
     Examples:
     |Location|Fromdate|Todate|Guests|Rooms|Hotelname|
-    |Kolkata |29-May-2024|31-May-2024|"1"|"1"|NPG|
+    |Kolkata |06-June-2024|09-June-2024|"1"|"1"|NPG|

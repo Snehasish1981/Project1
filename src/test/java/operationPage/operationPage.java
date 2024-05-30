@@ -238,11 +238,22 @@ public void launch_fb()
 
 
 }
+//    @FindBy(xpath="//input[@id='email']")
+//    WebElement login_id;
+    @FindBy(xpath="//input[@id='pass']")
+    WebElement pass_word;
+    @FindBy(xpath="//button[@name='login']")
+    WebElement login_button;
     public void login_fb() throws FileNotFoundException {
         List<String> credentials=read_excelfile();
         String userid=credentials.get(0);
         String password=credentials.get(1);
-
+//        login_id.sendKeys(userid);
+        driver.findElement(By.xpath("//input[@id='email']")).sendKeys(userid);
+//        pass_word.sendKeys(password);
+        driver.findElement(By.xpath("//input[@id='pass']")).sendKeys(password);
+//        login_button.click();
+        driver.findElement(By.xpath("//button[@name='login']")).click();
     }
 
 }
